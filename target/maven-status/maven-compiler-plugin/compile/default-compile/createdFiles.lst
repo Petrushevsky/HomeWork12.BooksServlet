@@ -1,0 +1,11 @@
+com\example\homeWork12\session\LoginServlet.class
+com\example\homeWork12\filters\RequestLoggingFilter.class
+com\example\homeWork12\ViewByIDServlet.class
+com\example\homeWork12\ViewServlet.class
+com\example\homeWork12\Books.class
+com\example\homeWork12\BooksRepository.class
+com\example\homeWork12\PutServlet.class
+com\example\homeWork12\DeleteServlet.class
+com\example\homeWork12\session\LogoutServlet.class
+com\example\homeWork12\SaveServlet.class
+com\example\homeWork12\filters\AuthenticationFilter.class

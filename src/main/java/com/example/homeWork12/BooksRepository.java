@@ -121,9 +121,6 @@ public class BooksRepository {
                 books.setQuantity(rs.getString(5));
                 books.setTotalprice(rs.getString(6));
                 books.setTelephone(rs.getString(7));
-
-
-
             }
             connection.close();
 

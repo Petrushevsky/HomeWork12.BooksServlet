@@ -27,22 +27,15 @@ public class SaveServlet extends HttpServlet {
         String telephone = request.getParameter("telephone");
 
         Books books = new Books();
-
-        books.setUsername(username);
-        books.setEmail(email);
-        books.setItem(item);
+        //задаём лимит и обрезаем лишнее индивидуально для каждого поля
+        books.setUsername(lengthStringCut(username, 50));// Здесь лимит длины строки 50, после 50 символа идет обрезание строки
+        books.setEmail(lengthStringCut(email, 15));
+        books.setItem(lengthStringCut(item, 50));
         books.setQuantity(quantity);
         books.setTotalprice(totalprice);
-        books.setTelephone(telephone);
-
-
-
-
-        //out.println(employee.toString());
-        //out.println(EmployeeRepository.getConnection());
+        books.setTelephone(lengthStringCut(telephone, 10));
 
         int status = BooksRepository.save(books);
-        //out.println(status);
 
         if (status > 0) {
             out.print("Record saved successfully!");
@@ -51,4 +44,25 @@ public class SaveServlet extends HttpServlet {
         }
         out.close();
     }
+
+    public String lengthStringCut(String string, int limit) {
+        // лимит строки передается в метод после строки
+        String result;
+        int length = string.length();
+        if (length > limit) {
+            result = string.substring(0, limit);
+            return result;
+        } else return string;
+
+
+    }
+
+    public String lengthStringValidate(String string) {
+        int limit = 3;// we made limit for length hardcode
+        int length = string.length();
+        if (length <= limit) {
+            return string;
+        } else return "Max limit reached";
+    }
+
 }
